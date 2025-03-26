@@ -1,12 +1,11 @@
-// app/page.tsx
 "use client"
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import PhonesGrid from './components/PhonesGrid';
 import ProjectsSection from './components/ProjectsSection';
-import cyberbarImg from '../public/img/cyberbar.png';
-import React from 'react';
+import HeaderSection from './components/HeaderSection';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 50 },
@@ -47,64 +46,35 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 transition-colors duration-500">
       {/* Header */}
-      <motion.header
-        className="sticky top-0 z-50 bg-white shadow-lg transition-colors duration-500"
-        variants={fadeInUp}
-        initial="hidden"
-        animate="visible"
-        custom={0.2}
-      >
-        <div className="container mx-auto px-6 py-6 flex justify-between items-center">
-          <Image src={cyberbarImg} alt="Cyber Bar" width={120} height={40} />
-          <nav>
-            <ul className="flex space-x-6">
-              <li>
-                <Link href="#features" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  Features
-                </Link>
-              </li>
-              <li>
-                <Link href="#phones" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  Phones
-                </Link>
-              </li>
-              <li>
-                <Link href="#projects" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link href="#contact" className="text-gray-600 hover:text-gray-800 transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </motion.header>
+      <HeaderSection />
+
+
 
       {/* Main Content */}
       <main>
         {/* Hero Section */}
         <motion.section
-          className="relative text-center py-32 bg-gradient-to-r from-blue-600 to-purple-700 overflow-hidden"
+          className="relative text-center py-36 bg-gradient-to-r from-blue-700 to-purple-800 overflow-hidden"
           variants={fadeInUp}
           initial="hidden"
           animate="visible"
           custom={0.4}
         >
           {/* Parallax Background */}
-          <div className="absolute inset-0 bg-fixed bg-center bg-cover opacity-30" style={{ backgroundImage: "url('/img/hero-bg.jpg')" }}></div>
-          <div className="relative container mx-auto px-6">
-            <h2 className="text-5xl md:text-6xl font-extrabold text-white mb-6 drop-shadow-lg">
+          <div
+            className="absolute inset-0 bg-fixed bg-center bg-cover opacity-30"
+            style={{ backgroundImage: "url('/img/hero-bg.jpg')" }}
+          ></div>
+          <div className="relative container mx-auto px-8">
+            <h2 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-2xl tracking-wide">
               Welcome to Cyber Bar
             </h2>
-            <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto drop-shadow-md">
+            <p className="text-xl md:text-2xl text-white mb-10 max-w-3xl mx-auto drop-shadow-lg">
               Your one-stop solution for iPhone screen replacement and web development services.
             </p>
             <Link
               href="/services"
-              className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold shadow-lg hover:shadow-xl transition duration-300"
+              className="inline-block bg-white text-blue-700 px-10 py-4 rounded-full font-semibold shadow-xl hover:shadow-2xl transition duration-300"
             >
               Our Services
             </Link>
@@ -120,12 +90,12 @@ export default function HomePage() {
           animate="visible"
           custom={0.6}
         >
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-8">
             <h3 className="text-4xl font-bold text-gray-900 text-center mb-12">Features</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-lg shadow-lg transition-transform"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.15)" }}
+                className="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-lg shadow-lg transition-transform"
               >
                 <h4 className="text-2xl font-semibold text-gray-900 mb-3">Fast Service</h4>
                 <p className="text-gray-600">
@@ -133,8 +103,8 @@ export default function HomePage() {
                 </p>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-lg shadow-lg transition-transform"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.15)" }}
+                className="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-lg shadow-lg transition-transform"
               >
                 <h4 className="text-2xl font-semibold text-gray-900 mb-3">Quality Work</h4>
                 <p className="text-gray-600">
@@ -142,8 +112,8 @@ export default function HomePage() {
                 </p>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-lg shadow-lg transition-transform"
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.15)" }}
+                className="bg-white bg-opacity-90 backdrop-blur-sm p-8 rounded-lg shadow-lg transition-transform"
               >
                 <h4 className="text-2xl font-semibold text-gray-900 mb-3">Expert Team</h4>
                 <p className="text-gray-600">
@@ -163,7 +133,7 @@ export default function HomePage() {
           animate="visible"
           custom={1.0}
         >
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-8">
             <PhonesGrid />
           </div>
         </motion.section>
@@ -180,7 +150,7 @@ export default function HomePage() {
           animate="visible"
           custom={0.8}
         >
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-8">
             <h3 className="text-4xl font-bold text-gray-900 text-center mb-12">Testimonials</h3>
             <div className="relative max-w-xl mx-auto">
               <AnimatePresence mode="wait">
@@ -229,7 +199,7 @@ export default function HomePage() {
           animate="visible"
           custom={1.2}
         >
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-8">
             <h3 className="text-4xl font-bold text-gray-900 text-center mb-6">Get in Touch</h3>
             <p className="text-center text-gray-600 mb-10">
               Have questions? Contact us for more details about our services.
@@ -289,11 +259,10 @@ export default function HomePage() {
         animate="visible"
         custom={1.4}
       >
-        <div className="container mx-auto px-6 text-center text-gray-600">
+        <div className="container mx-auto px-8 text-center text-gray-600">
           &copy; {new Date().getFullYear()} Cyber Bar. All rights reserved.
         </div>
       </motion.footer>
     </div>
   );
 }
-
